@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>个人简历 - 张三</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Microsoft YaHei", Arial, sans-serif;
+        }
+
+        body {
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 2rem auto;
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid #007acc;
+        }
+
+        h1 {
+            color: #007acc;
+            margin-bottom: 0.5rem;
+        }
+
+        .contact {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        .contact a {
+            color: #007acc;
+            text-decoration: none;
+        }
+
+        .contact a:hover {
+            text-decoration: underline;
+        }
+
+        section {
+            margin-bottom: 1.5rem;
+        }
+
+        h2 {
+            color: #007acc;
+            margin-bottom: 1rem;
+            border-left: 4px solid #007acc;
+            padding-left: 0.8rem;
+        }
+
+        .info-item {
+            margin-bottom: 1rem;
+        }
+
+        .info-item h3 {
+            font-size: 1.1rem;
+            margin-bottom: 0.3rem;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .info-item .time {
+            color: #888;
+            font-size: 0.9rem;
+            font-weight: normal;
+        }
+
+        .info-item p, .info-item ul {
+            color: #555;
+            margin-left: 1rem;
+        }
+
+        .info-item ul {
+            list-style: disc;
+        }
+
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+        }
+
+        .skill-tag {
+            background-color: #e6f7ff;
+            color: #007acc;
+            padding: 0.4rem 0.8rem;
+            border-radius: 4px;
+            font-size: 0.9rem;
+        }
+
+        /* 响应式适配手机 */
+        @media (max-width: 768px) {
+            .container {
+                margin: 1rem;
+                padding: 1.5rem;
+            }
+
+            .info-item h3 {
+                flex-direction: column;
+            }
+
+            .info-item .time {
+                margin-top: 0.2rem;
+            }
+
+            .skills {
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- 头部：个人基本信息 -->
+        <header>
+            <h1>张三</h1>
+            <p class="contact">
+                电话：138XXXX1234 | 邮箱：zhangsan@example.com | 
+                GitHub：<a href="https://github.com/zhangsan" target="_blank">github.com/zhangsan</a> | 
+                地址：北京市朝阳区
+            </p>
+        </header>
+
+        <!-- 求职意向 -->
+        <section>
+            <h2>求职意向</h2>
+            <div class="info-item">
+                <p>前端开发工程师 | 期望薪资：15K-20K/月 | 可立即到岗</p>
+            </div>
+        </section>
+
+        <!-- 教育背景 -->
+        <section>
+            <h2>教育背景</h2>
+            <div class="info-item">
+                <h3>XX大学 计算机科学与技术 <span class="time">2018.09 - 2022.06</span></h3>
+                <p>本科 | 学士学位 | GPA：3.5/4.0 | 校级奖学金2次</p>
+            </div>
+        </section>
+
+        <!-- 工作/项目经历 -->
+        <section>
+            <h2>项目经历</h2>
+            <div class="info-item">
+                <h3>个人博客网站 <span class="time">2023.03 - 2023.05</span></h3>
+                <ul>
+                    <li>使用 HTML/CSS/JavaScript 开发静态博客，实现文章展示、分类、搜索功能</li>
+                    <li>基于 GitHub Pages 部署，适配移动端和PC端，访问量累计1000+</li>
+                    <li>技术栈：HTML5、CSS3、JavaScript、Responsive Design</li>
+                </ul>
+            </div>
+            <div class="info-item">
+                <h3>企业官网重构 <span class="time">2022.07 - 2022.10</span></h3>
+                <ul>
+                    <li>参与企业官网的前端重构，优化页面加载速度30%，提升用户体验</li>
+                    <li>使用 Flex/Grid 布局实现响应式设计，兼容主流浏览器</li>
+                    <li>技术栈：HTML5、CSS3、jQuery、Bootstrap</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- 技能清单 -->
+        <section>
+            <h2>专业技能</h2>
+            <div class="skills">
+                <span class="skill-tag">HTML5/CSS3</span>
+                <span class="skill-tag">JavaScript</span>
+                <span class="skill-tag">Vue.js</span>
+                <span class="skill-tag">React（基础）</span>
+                <span class="skill-tag">响应式开发</span>
+                <span class="skill-tag">Git/GitHub</span>
+                <span class="skill-tag">Node.js（基础）</span>
+                <span class="skill-tag">UI/UX 基础</span>
+            </div>
+        </section>
+
+        <!-- 自我评价 -->
+        <section>
+            <h2>自我评价</h2>
+            <div class="info-item">
+                <p>具备扎实的前端基础，熟悉主流前端技术栈，注重代码规范和用户体验；<br>
+                自学能力强，乐于探索新技术，有良好的沟通和协作能力；<br>
+                热爱前端开发，追求优雅、高效的代码风格，目标成为全栈开发工程师。</p>
+            </div>
+        </section>
+    </div>
+</body>
+</html>
