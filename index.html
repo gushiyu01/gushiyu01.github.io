@@ -92,9 +92,24 @@
             background-color: #f0f7ff;
         }
         
+        .intent-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+        }
+        
         .intent-item {
-            margin-bottom: 10px;
             font-size: 1.1rem;
+            padding: 8px 15px;
+            background: rgba(255, 255, 255, 0.7);
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+        
+        .intent-item:hover {
+            background: rgba(255, 255, 255, 0.9);
+            transform: translateY(-2px);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
         }
         
         .education, .work-experience, .projects {
@@ -105,6 +120,7 @@
         .timeline-item {
             position: relative;
             padding-left: 30px;
+            margin-bottom: 30px;
         }
         
         .timeline-item::before {
@@ -251,6 +267,14 @@
             .skills-container {
                 grid-template-columns: 1fr;
             }
+            
+            .timeline-item {
+                padding-left: 25px;
+            }
+            
+            .intent-container {
+                grid-template-columns: 1fr;
+            }
         }
         
         .footer {
@@ -259,6 +283,16 @@
             color: #777;
             font-size: 0.9rem;
             background-color: #f8f9fa;
+        }
+        
+        .description ul {
+            padding-left: 20px;
+            margin: 10px 0;
+        }
+        
+        .description li {
+            margin-bottom: 5px;
+            line-height: 1.5;
         }
     </style>
 </head>
@@ -289,9 +323,9 @@
         
         <section class="section job-intent">
             <h2 class="section-title"><i class="fas fa-bullseye"></i> 求职意向</h2>
-            <div class="intent-items">
+            <div class="intent-container">
                 <div class="intent-item"><i class="fas fa-briefcase"></i> <strong>岗位：</strong>Java研发工程师</div>
-                <div class="intent-item"><i class="fas fa-money-bill-wave"></i> <strong>期望薪资：</strong>15K～20K</div>
+                <div class="intent-item"><i class="fas fa-money-bill-wave"></i> <strong>期望薪资：</strong>16K～20K</div>
                 <div class="intent-item"><i class="fas fa-map-pin"></i> <strong>工作地点：</strong>郑州市</div>
                 <div class="intent-item"><i class="fas fa-business-time"></i> <strong>工作性质：</strong>全职</div>
             </div>
@@ -334,13 +368,13 @@
             <h2 class="section-title"><i class="fas fa-project-diagram"></i> 项目经历</h2>
             
             <div class="timeline-item">
-                <div class="date">2025/05 - 2025/09</div>
+                <div class="date">2023/05 - 2023/09</div>
                 <div class="company">AI小安智能客服</div>
                 <div class="role">公司项目</div>
                 <div class="description">
                     <p><strong>项目介绍：</strong>本项目是为了在公司官网提供在线客服的功能缓解在线人工客服压力、给用户解决CA证书在使用过程中的各类问题。调用在线AI大模型接口，结合本地知识库实现AI智能问答。</p>
                     <p><strong>工作内容：</strong></p>
-                    <ul style="padding-left:20px; margin:10px 0;">
+                    <ul>
                         <li>提供在线更新知识库的接口，允许运营人员在线更新知识库信息</li>
                         <li>提供流程图标注功能，实现图文回复</li>
                         <li>保存登录用户、非登录用户对话历史，及对答案的满意度</li>
@@ -361,13 +395,13 @@
             </div>
             
             <div class="timeline-item">
-                <div class="date">2024/07 - 2025/09</div>
+                <div class="date">2022/07 - 2023/04</div>
                 <div class="company">云密码服务平台</div>
                 <div class="role">公司项目</div>
                 <div class="description">
                     <p><strong>项目介绍：</strong>使用厂商提供的可虚拟化的密码卡密码机，通过容器化技术进行资源的合理创建与分配，实现资源的弹性应用。具体通过JNA技术实现从Java调用C的目的，进行对数据的加解密，签名验签，获取时间戳等。</p>
                     <p><strong>工作内容：</strong></p>
-                    <ul style="padding-left:20px; margin:10px 0;">
+                    <ul>
                         <li>部分功能模块需求的可行性分析与原型沟通</li>
                         <li>相应的技术方案设计与实现</li>
                         <li>设计与外部系统对接方案及落地</li>
@@ -391,7 +425,7 @@
                 <div class="description">
                     <p><strong>项目介绍：</strong>该项目主要用于将合同签署全程电子化处理，包括合同起草上传，企业、个人签章制作、内部签章审批，外部流转，多端审批，消息推送。</p>
                     <p><strong>工作内容：</strong></p>
-                    <ul style="padding-left:20px; margin:10px 0;">
+                    <ul>
                         <li>设计项目审批流程，整合flowable工作流框架，实现企业内部合同审批</li>
                         <li>与产品沟通业务流程整体实现方案</li>
                         <li>帮助组内同事调研签章生成技术方案</li>
@@ -416,7 +450,7 @@
                 <div class="description">
                     <p><strong>项目介绍：</strong>该项目主要用于将商用密码测评流程全程电子化操作，具体就是分步骤电子化，最后出具一份报告。</p>
                     <p><strong>工作内容：</strong></p>
-                    <ul style="padding-left:20px; margin:10px 0;">
+                    <ul>
                         <li>协调前后端对接工作引入，swagger、apifox等工具</li>
                         <li>引入事件发布订阅机制，简化业务流程，提升代码可读性</li>
                         <li>完成模块沟通、设计及实现工作</li>
@@ -438,7 +472,7 @@
                 <div class="description">
                     <p><strong>项目介绍：</strong>该项目主要用于约束、规范、和简化民警出警办案流程，分为APP端和PC管理端。APP端记录办案流程，并生成各类案发需要的文书模板，方便及时给当事人出具相应文书；PC管理端则是对案情的预览和对APP账号的管理。</p>
                     <p><strong>工作内容：</strong></p>
-                    <ul style="padding-left:20px; margin:10px 0;">
+                    <ul>
                         <li>深入一线与民警、协警沟通确认需求</li>
                         <li>设计系统整体数据流转方案及业务逻辑实现</li>
                         <li>对接第三方打通数据来源</li>
@@ -463,7 +497,7 @@
                 <div class="description">
                     <p><strong>项目介绍：</strong>该项目是一个舆情分析系统，通过用户配置相应的关注人员、关注事件，利用第三方数据采集平台进行数据采集，经系统加工后，进行呈现以及生效相应的热点事件、异常事件。</p>
                     <p><strong>工作内容：</strong></p>
-                    <ul style="padding-left:20px; margin:10px 0;">
+                    <ul>
                         <li>设计业务逻辑及实现</li>
                         <li>服务器运维，搭建ES、kafka集群</li>
                         <li>利用docker快速部署后端服务</li>
@@ -508,7 +542,7 @@
                 <div class="skill-category">
                     <div class="skill-category-title">前端技能</div>
                     <ul class="skill-list">
-                        <li>熟悉VUE、Bootstrap等前端开发框架</li>
+                        <li>熟悉Vue、Bootstrap等前端开发框架</li>
                         <li>熟悉基础HTML、JS、CSS</li>
                     </ul>
                 </div>
@@ -525,7 +559,7 @@
         
         <section class="section">
             <h2 class="section-title"><i class="fas fa-user"></i> 自我评价</h2>
-            <ul class="self-evaluation" style="padding-left:20px;">
+            <ul class="self-evaluation">
                 <li>能够进行有效的语言表述及沟通</li>
                 <li>自我驱动能力强，能够快速学习新的知识</li>
                 <li>喜欢研究新知识，动手能力强</li>
@@ -539,3 +573,4 @@
     </div>
 </body>
 </html>
+
