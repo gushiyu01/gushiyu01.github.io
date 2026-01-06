@@ -1,11 +1,541 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-<meta charset="UTF-8">
-<title>我的第一个GitHub Pages网站</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>谷世宇 - Java研发工程师</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f7fa;
+            color: #333;
+            line-height: 1.6;
+            padding: 20px;
+        }
+        
+        .resume-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: white;
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #1e5799 0%, #207cca 51%, #2989d8 100%);
+            color: white;
+            padding: 40px;
+            text-align: center;
+        }
+        
+        .name {
+            font-size: 2.8rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+        
+        .title {
+            font-size: 1.4rem;
+            font-weight: 300;
+            margin-bottom: 20px;
+            opacity: 0.9;
+        }
+        
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 25px;
+            margin-top: 20px;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 1.05rem;
+        }
+        
+        .section {
+            padding: 30px 40px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .section-title {
+            font-size: 1.6rem;
+            color: #1e5799;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #eaeaea;
+            position: relative;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 100px;
+            height: 2px;
+            background: #1e5799;
+        }
+        
+        .job-intent {
+            background-color: #f0f7ff;
+        }
+        
+        .intent-item {
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+        
+        .education, .work-experience, .projects {
+            display: grid;
+            gap: 25px;
+        }
+        
+        .timeline-item {
+            position: relative;
+            padding-left: 30px;
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 8px;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #1e5799;
+            border: 2px solid white;
+            box-shadow: 0 0 0 2px #1e5799;
+        }
+        
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            left: 5px;
+            top: 20px;
+            bottom: -15px;
+            width: 2px;
+            background: #d1d1d1;
+        }
+        
+        .last-item::after {
+            display: none;
+        }
+        
+        .date {
+            font-weight: 600;
+            color: #1e5799;
+            margin-bottom: 5px;
+            font-size: 1.05rem;
+        }
+        
+        .company, .school {
+            font-weight: 600;
+            font-size: 1.2rem;
+            margin-bottom: 5px;
+            color: #2c3e50;
+        }
+        
+        .role {
+            font-weight: 500;
+            color: #3498db;
+            margin-bottom: 12px;
+            font-size: 1.1rem;
+        }
+        
+        .description {
+            color: #555;
+            line-height: 1.7;
+        }
+        
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        
+        .skill-category {
+            margin-bottom: 15px;
+        }
+        
+        .skill-category-title {
+            font-weight: 600;
+            color: #1e5799;
+            margin-bottom: 8px;
+            font-size: 1.1rem;
+        }
+        
+        .skill-list {
+            padding-left: 20px;
+            color: #555;
+        }
+        
+        .skill-list li {
+            margin-bottom: 8px;
+        }
+        
+        .certificates {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        
+        .certificate {
+            background: #eef7ff;
+            padding: 12px 20px;
+            border-radius: 5px;
+            font-weight: 500;
+            color: #1e5799;
+            border-left: 3px solid #1e5799;
+        }
+        
+        .self-evaluation li {
+            margin-bottom: 10px;
+            padding-left: 20px;
+            position: relative;
+        }
+        
+        .self-evaluation li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: #1e5799;
+            font-weight: bold;
+        }
+        
+        .project-tech {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 15px;
+            border-left: 3px solid #1e5799;
+        }
+        
+        .tech-title {
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #2c3e50;
+        }
+        
+        @media (max-width: 768px) {
+            .header {
+                padding: 30px 20px;
+            }
+            
+            .name {
+                font-size: 2.2rem;
+            }
+            
+            .section {
+                padding: 25px;
+            }
+            
+            .contact-info {
+                flex-direction: column;
+                align-items: center;
+                gap: 12px;
+            }
+            
+            .skills-container {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .footer {
+            text-align: center;
+            padding: 20px;
+            color: #777;
+            font-size: 0.9rem;
+            background-color: #f8f9fa;
+        }
+    </style>
 </head>
 <body>
-<h1>恭喜！网站部署成功啦！</h1>
-<p>用GitHub Pages搭网站真的超简单～</p>
+    <div class="resume-container">
+        <header class="header">
+            <h1 class="name">谷世宇</h1>
+            <div class="title">Java研发工程师 | 7年经验</div>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <i class="fas fa-phone"></i>
+                    <span>13523511140</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <span>923686643@qq.com</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>河南郑州</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-user-graduate"></i>
+                    <span>本科 | 33岁</span>
+                </div>
+            </div>
+        </header>
+        
+        <section class="section job-intent">
+            <h2 class="section-title"><i class="fas fa-bullseye"></i> 求职意向</h2>
+            <div class="intent-items">
+                <div class="intent-item"><i class="fas fa-briefcase"></i> <strong>岗位：</strong>Java研发工程师</div>
+                <div class="intent-item"><i class="fas fa-money-bill-wave"></i> <strong>期望薪资：</strong>16K～20K</div>
+                <div class="intent-item"><i class="fas fa-map-pin"></i> <strong>工作地点：</strong>郑州市</div>
+                <div class="intent-item"><i class="fas fa-business-time"></i> <strong>工作性质：</strong>全职</div>
+            </div>
+        </section>
+        
+        <section class="section education">
+            <h2 class="section-title"><i class="fas fa-graduation-cap"></i> 教育背景</h2>
+            <div class="timeline-item last-item">
+                <div class="date">2011/09 - 2015/06</div>
+                <div class="school">北京邮电大学</div>
+                <div class="role">本科 - 物流工程</div>
+            </div>
+        </section>
+        
+        <section class="section work-experience">
+            <h2 class="section-title"><i class="fas fa-briefcase"></i> 工作经历</h2>
+            <div class="timeline-item">
+                <div class="date">2023/02 - 至今</div>
+                <div class="company">河南省信息化集团有限公司</div>
+                <div class="role">Java研发工程师</div>
+            </div>
+            <div class="timeline-item">
+                <div class="date">2019/10 - 2022/11</div>
+                <div class="company">中科大数据研究院</div>
+                <div class="role">Java研发及项目负责人</div>
+            </div>
+            <div class="timeline-item">
+                <div class="date">2018/08 - 2019/09</div>
+                <div class="company">安徽科大国创云网科技有限公司</div>
+                <div class="role">Java研发工程师</div>
+            </div>
+            <div class="timeline-item last-item">
+                <div class="date">2015/08 - 2018/07</div>
+                <div class="company">金色梦魅服饰</div>
+                <div class="role">电子商务</div>
+            </div>
+        </section>
+        
+        <section class="section projects">
+            <h2 class="section-title"><i class="fas fa-project-diagram"></i> 项目经历</h2>
+            
+            <div class="timeline-item">
+                <div class="date">2025/05 - 2025/09</div>
+                <div class="company">AI小安智能客服</div>
+                <div class="role">公司项目</div>
+                <div class="description">
+                    <p><strong>项目介绍：</strong>本项目是为了在公司官网提供在线客服的功能缓解在线人工客服压力、给用户解决CA证书在使用过程中的各类问题。调用在线AI大模型接口，结合本地知识库实现AI智能问答。</p>
+                    <p><strong>工作内容：</strong></p>
+                    <ul style="padding-left:20px; margin:10px 0;">
+                        <li>提供在线更新知识库的接口，允许运营人员在线更新知识库信息</li>
+                        <li>提供流程图标注功能，实现图文回复</li>
+                        <li>保存登录用户、非登录用户对话历史，及对答案的满意度</li>
+                        <li>调整prompt，适配运营提出的需求</li>
+                        <li>拓展框架接口，实现对用户提问过程中的敏感词进行过滤</li>
+                        <li>整合Apache Tika库实现对各类文档的信息分割提取</li>
+                        <li>调用在线大模型接口</li>
+                        <li>提供各类function tool，实现一些实时功能，如日期、天气、金额模糊化等</li>
+                        <li>总结分析用户提问数据形成热门话题及云词图，用于不断新增及补充知识库信息</li>
+                    </ul>
+                </div>
+                <div class="project-tech">
+                    <div class="tech-title">涉及技术：</div>
+                    <p>1. 项目框架后端：SpringMVC、SpringBoot、MybatisPlus、Langchain4j、Apache Tika；前端Vue、Vite</p>
+                    <p>2. 通过nginx反向代理实现前后端分离，Redis缓存用户数据，并进行限流，minio存储图片文档</p>
+                    <p>3. 使用milvus向量库对知识库数据进行向量化处理，Mongodb存储用户对话历史，mysql存储基础数据</p>
+                </div>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="date">2024/07 - 2025/09</div>
+                <div class="company">云密码服务平台</div>
+                <div class="role">公司项目</div>
+                <div class="description">
+                    <p><strong>项目介绍：</strong>使用厂商提供的可虚拟化的密码卡密码机，通过容器化技术进行资源的合理创建与分配，实现资源的弹性应用。具体通过JNA技术实现从Java调用C的目的，进行对数据的加解密，签名验签，获取时间戳等。</p>
+                    <p><strong>工作内容：</strong></p>
+                    <ul style="padding-left:20px; margin:10px 0;">
+                        <li>部分功能模块需求的可行性分析与原型沟通</li>
+                        <li>相应的技术方案设计与实现</li>
+                        <li>设计与外部系统对接方案及落地</li>
+                        <li>业务功能的开发及测试</li>
+                        <li>项目设计文档编写</li>
+                    </ul>
+                </div>
+                <div class="project-tech">
+                    <div class="tech-title">涉及技术：</div>
+                    <p>1. 项目框架后端：SpringMVC、SpringBoot、MybatisPlus；前端VUE</p>
+                    <p>2. 通过nginx反向代理，redis缓存session，通过AMQP实现RPC调用</p>
+                    <p>3. 项目通过JNA实现了跨语言调用硬件算法实现国密加解密</p>
+                    <p>4. docker虚拟化技术</p>
+                </div>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="date">2023/07 - 2024/06</div>
+                <div class="company">网信签</div>
+                <div class="role">公司项目</div>
+                <div class="description">
+                    <p><strong>项目介绍：</strong>该项目主要用于将合同签署全程电子化处理，包括合同起草上传，企业、个人签章制作、内部签章审批，外部流转，多端审批，消息推送。</p>
+                    <p><strong>工作内容：</strong></p>
+                    <ul style="padding-left:20px; margin:10px 0;">
+                        <li>设计项目审批流程，整合flowable工作流框架，实现企业内部合同审批</li>
+                        <li>与产品沟通业务流程整体实现方案</li>
+                        <li>帮助组内同事调研签章生成技术方案</li>
+                        <li>封装统一websocket消息通知及数据库加解密组件</li>
+                        <li>规划业务系统功能实现的版本划分与迭代</li>
+                        <li>确定业务系统使用的各类中间件</li>
+                    </ul>
+                </div>
+                <div class="project-tech">
+                    <div class="tech-title">涉及技术：</div>
+                    <p>1. 项目框架后端：SpringMVC、SpringBoot、MybatisPlus；PC管理vue</p>
+                    <p>2. 通过nginx反向代理，redis缓存</p>
+                    <p>3. 项目通过poi-tl进行动态模板替换生成复杂word文档</p>
+                    <p>4. 使用mongodb存储合同文件</p>
+                </div>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="date">2023/02 - 2023/07</div>
+                <div class="company">商用密码测评系统</div>
+                <div class="role">公司项目</div>
+                <div class="description">
+                    <p><strong>项目介绍：</strong>该项目主要用于将商用密码测评流程全程电子化操作，具体就是分步骤电子化，最后出具一份报告。</p>
+                    <p><strong>工作内容：</strong></p>
+                    <ul style="padding-left:20px; margin:10px 0;">
+                        <li>协调前后端对接工作引入，swagger、apifox等工具</li>
+                        <li>引入事件发布订阅机制，简化业务流程，提升代码可读性</li>
+                        <li>完成模块沟通、设计及实现工作</li>
+                    </ul>
+                </div>
+                <div class="project-tech">
+                    <div class="tech-title">涉及技术：</div>
+                    <p>1. 项目框架后端：SpringMVC、SpringBoot、MybatisPlus；PC管理vue</p>
+                    <p>2. 通过nginx反向代理，redis缓存</p>
+                    <p>3. 项目通过poi-tl进行动态模板替换生成复杂word文档</p>
+                    <p>4. 又利用了Linux的libreoffice，直接Java执行Linux命令，实现了word模板转PDF用作预览</p>
+                </div>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="date">2021/12 - 2022/10</div>
+                <div class="company">智慧出警</div>
+                <div class="role">公安内网项目</div>
+                <div class="description">
+                    <p><strong>项目介绍：</strong>该项目主要用于约束、规范、和简化民警出警办案流程，分为APP端和PC管理端。APP端记录办案流程，并生成各类案发需要的文书模板，方便及时给当事人出具相应文书；PC管理端则是对案情的预览和对APP账号的管理。</p>
+                    <p><strong>工作内容：</strong></p>
+                    <ul style="padding-left:20px; margin:10px 0;">
+                        <li>深入一线与民警、协警沟通确认需求</li>
+                        <li>设计系统整体数据流转方案及业务逻辑实现</li>
+                        <li>对接第三方打通数据来源</li>
+                        <li>应用部署及APP发布</li>
+                    </ul>
+                </div>
+                <div class="project-tech">
+                    <div class="tech-title">涉及技术：</div>
+                    <p>1. 项目框架后端：SpringMVC、SpringBoot、MybatisPlus；APP前端uniapp，PC管理vue</p>
+                    <p>2. 通过nginx反向代理接口服务和PC管理端</p>
+                    <p>3. 项目通过EasyPoi进行模板替换生成word文档</p>
+                    <p>4. 又利用了Linux的libreoffice，直接Java执行Linux命令，实现了word模板转PDF用作预览</p>
+                    <p>5. 使用minio作为文件服务器，存储签名照片，word、PDF文档</p>
+                    <p>6. springboot定时任务，定时拉取数据</p>
+                </div>
+            </div>
+            
+            <div class="timeline-item last-item">
+                <div class="date">2019/10 - 2020/10</div>
+                <div class="company">舆情分析系统</div>
+                <div class="role">互联网自研项目</div>
+                <div class="description">
+                    <p><strong>项目介绍：</strong>该项目是一个舆情分析系统，通过用户配置相应的关注人员、关注事件，利用第三方数据采集平台进行数据采集，经系统加工后，进行呈现以及生效相应的热点事件、异常事件。</p>
+                    <p><strong>工作内容：</strong></p>
+                    <ul style="padding-left:20px; margin:10px 0;">
+                        <li>设计业务逻辑及实现</li>
+                        <li>服务器运维，搭建ES、kafka集群</li>
+                        <li>利用docker快速部署后端服务</li>
+                    </ul>
+                </div>
+                <div class="project-tech">
+                    <div class="tech-title">涉及技术：</div>
+                    <p>1. 项目框架后端：SpringMVC、SpringBoot、Mybatis；前端：vue</p>
+                    <p>2. 通过nginx反向代理接口服务和PC管理端</p>
+                    <p>3. 通过kafka接收第三方采集平台推送数据</p>
+                    <p>4. 使用ES进行全文数据检索，全量非检索数据存入MongoDB</p>
+                    <p>5. 项目通过EasyPoi进行模板替换生成word文档</p>
+                </div>
+            </div>
+        </section>
+        
+        <section class="section">
+            <h2 class="section-title"><i class="fas fa-laptop-code"></i> 专业技能</h2>
+            <div class="skills-container">
+                <div class="skill-category">
+                    <div class="skill-category-title">核心技能</div>
+                    <ul class="skill-list">
+                        <li>熟练掌握Java基础、集合、多线程等</li>
+                        <li>熟练操作MySQL等数据库</li>
+                        <li>熟练掌握Spring、Spring MVC、Spring Boot、Mybatis等开发框架</li>
+                        <li>熟悉Shiro、Spring Security等安全框架</li>
+                        <li>熟悉基础python语言</li>
+                        <li>熟悉langchain4j框架</li>
+                    </ul>
+                </div>
+                
+                <div class="skill-category">
+                    <div class="skill-category-title">中间件与工具</div>
+                    <ul class="skill-list">
+                        <li>熟练Kafka、ElasticSearch等服务中间件的使用</li>
+                        <li>熟练使用Nginx，熟悉Redis</li>
+                        <li>熟悉docker、熟悉Linux系统常用命令</li>
+                        <li>熟悉Spring Cloud、Dubbo、Eureka、Nacos微服务框架</li>
+                    </ul>
+                </div>
+                
+                <div class="skill-category">
+                    <div class="skill-category-title">前端技能</div>
+                    <ul class="skill-list">
+                        <li>熟悉VUE、Bootstrap等前端开发框架</li>
+                        <li>熟悉基础HTML、JS、CSS</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        
+        <section class="section">
+            <h2 class="section-title"><i class="fas fa-certificate"></i> 职称证书</h2>
+            <div class="certificates">
+                <div class="certificate">大数据中级工程师职称</div>
+                <div class="certificate">中原科技城E类人才</div>
+            </div>
+        </section>
+        
+        <section class="section">
+            <h2 class="section-title"><i class="fas fa-user"></i> 自我评价</h2>
+            <ul class="self-evaluation" style="padding-left:20px;">
+                <li>能够进行有效的语言表述及沟通</li>
+                <li>自我驱动能力强，能够快速学习新的知识</li>
+                <li>喜欢研究新知识，动手能力强</li>
+            </ul>
+        </section>
+        
+        <div class="footer">
+            <p>更新日期：2025年4月</p>
+            <p>© 2025 谷世宇个人简历 | 本简历由HTML精心打造</p>
+        </div>
+    </div>
 </body>
 </html>
